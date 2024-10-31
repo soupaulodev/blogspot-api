@@ -39,6 +39,10 @@
 - `DELETE /posts/{id}` - Excluir um post.
 
 #### Comentários
+- `POST /posts/{postId}/likes` - Curtir um post.
+- `GET /posts/{postId}/likes` - Obter quantidade de likes de um post.
+  
+#### Comentários
 - `POST /posts/{postId}/comments` - Adicionar um comentário a um post.
 - `GET /posts/{postId}/comments` - Listar comentários de um post.
 
