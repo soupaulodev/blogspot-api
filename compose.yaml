@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: bitnami/postgresql:14
+    restart: always
+    environment:
+      POSTGRES_USER: 'docker'
+      POSTGRES_PASSWORD: 'docker'
+      POSTGRES_DB: 'blogspot'
+    ports:
+      - '5432:5432'
+    volumes:
+      - blogspot_pg_data:/bitnami/postgresql
+  redis:
+    image: docker.io/bitnami/redis:7.4
+    restart: always
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      # - REDIS_REPLICATION_MODE=slave
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      # - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'blogspot_redis_data:/bitnami/redis/data'
+
+volumes:
+  blogspot_pg_data:
+    driver: local
+  blogspot_redis_data:
+    driver: local
