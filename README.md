@@ -18,6 +18,10 @@
 - **Detalhes do Post**: Visualização completa dos detalhes de um post específico, incluindo comentários.
 
 ### Comentários
+- **Curtir Posts**: Usuários podem curtir posts.
+- **Obter número de likes**: Visualização de número de curtidas de um post.
+  
+### Comentários
 - **Adicionar Comentário**: Usuários podem adicionar comentários a posts.
 - **Listar Comentários**: Visualização de todos os comentários associados a um post.
 
