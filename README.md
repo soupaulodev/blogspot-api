@@ -55,7 +55,7 @@
 ```bash
 java -version
 ```
-Docker: Certifique-se de que o Docker esteja instalado e em execução. Você pode verificar a instalação executando:
+- **Docker**: Certifique-se de que o Docker esteja instalado e em execução. Você pode verificar a instalação executando:
 ```bash
 docker --version
 ```
