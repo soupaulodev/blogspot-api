@@ -1,5 +1,5 @@
+![Cover](./.github/cover.png)
 # API RESTful BlogSpot
-[](./github/cover.png)
 
 ## Visão Geral
 **BlogSpot** é uma API RESTful robusta e escalável projetada para gerenciar posts e usuários em uma plataforma de blogs e artigos. Esta API permite que os usuários criem, editem, visualizem e excluam posts, além de gerenciar perfis de usuários. Com base nas melhores práticas de design RESTful, o BlogSpot proporciona uma experiência de desenvolvimento intuitiva e eficiente.
