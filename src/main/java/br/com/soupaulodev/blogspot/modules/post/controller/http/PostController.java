@@ -20,6 +20,7 @@ import java.util.UUID;
 public class PostController {
 
     private final CreatePostUsecase createPostUsecase;
+    private final GetAllPostsUsecase getAllPostsUsecase;
     private final GetPostUsecase getPostUsecase;
     private final SearchPostsUsecase searchPostsUsecase;
     private final UpdatePostUsecase updatePostUsecase;
@@ -27,12 +28,14 @@ public class PostController {
 
     public PostController(
         CreatePostUsecase createPostUsecase,
+        GetAllPostsUsecase getAllPostsUsecase,
         GetPostUsecase getPostUsecase,
         SearchPostsUsecase searchPostsUsecase,
         UpdatePostUsecase updatePostUsecase,
         DeletePostUsecase deletePostUsecase
     ) {
         this.createPostUsecase = createPostUsecase;
+        this.getAllPostsUsecase = getAllPostsUsecase;
         this.getPostUsecase = getPostUsecase;
         this.searchPostsUsecase = searchPostsUsecase;
         this.updatePostUsecase = updatePostUsecase;
@@ -44,6 +47,14 @@ public class PostController {
         PostEntity postCreated = createPostUsecase.execute(request.toEntity("author"));
         URI uri = URI.create("/post/" + postCreated.getId());
         return ResponseEntity.created(uri).body(PostResponseDTO.fromEntity(postCreated));
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<PostResponseDTO>> getPosts(Pageable pageable) {
+        Page<PostResponseDTO> posts = new PageImpl<>(
+                getAllPostsUsecase.execute(pageable).getContent()
+                        .stream().map(PostResponseDTO::fromEntity).toList(), pageable, 10);
+        return ResponseEntity.ok().body(posts);
     }
 
     @GetMapping("/{id}")

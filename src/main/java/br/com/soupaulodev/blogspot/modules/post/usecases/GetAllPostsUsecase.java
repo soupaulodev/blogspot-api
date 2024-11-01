@@ -7,15 +7,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SearchPostsUsecase {
+public class GetAllPostsUsecase {
 
     private final PostRepository postRepository;
 
-    public SearchPostsUsecase(PostRepository postRepository) {
+    public GetAllPostsUsecase(PostRepository postRepository) {
         this.postRepository = postRepository;
     }
 
-    public Page<PostEntity> execute(String title, String author, Pageable pageable) {
-        return postRepository.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrderByCreatedAt(title, author, pageable);
+    public Page<PostEntity> execute(Pageable pageable) {
+        return postRepository.findAllByCreatedAt(pageable);
     }
 }

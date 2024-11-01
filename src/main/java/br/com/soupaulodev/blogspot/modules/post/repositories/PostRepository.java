@@ -11,7 +11,8 @@ import java.util.UUID;
 @Repository
 public interface PostRepository extends JpaRepository<PostEntity, UUID> {
 
-    Page<PostEntity> findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCase(String title,
+    Page<PostEntity> findAllByCreatedAt(Pageable pageable);
+    Page<PostEntity> findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrderByCreatedAt(String title,
                                                                                   String author,
                                                                                   Pageable pageable);
 }
