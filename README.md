@@ -103,4 +103,4 @@ A API BlogSpot foi desenvolvida com foco em segurança e desempenho, proporciona
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
 
 ## Licença
-Esta API é licenciada sob a ![GNU General Public License v2.0](LICENSE.).
+Esta API é licenciada sob a [GNU General Public License v2.0](LICENSE).
