@@ -16,6 +16,6 @@ public class GetAllPostsUsecase {
     }
 
     public Page<PostEntity> execute(Pageable pageable) {
-        return postRepository.findAllByCreatedAt(pageable);
+        return postRepository.findAll(pageable);
     }
 }

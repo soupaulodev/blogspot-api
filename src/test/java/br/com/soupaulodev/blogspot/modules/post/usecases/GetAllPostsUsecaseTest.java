@@ -30,7 +30,7 @@ class GetAllPostsUsecaseTest {
     void shouldReturnAllPostsSuccessfully() {
         Pageable pageable = PageRequest.of(0, 10);
         Page<PostEntity> posts = new PageImpl<>(List.of(new PostEntity()));
-        when(postRepository.findAllByCreatedAt(pageable)).thenReturn(posts);
+        when(postRepository.findAll(pageable)).thenReturn(posts);
 
         Page<PostEntity> result = getAllPostsUsecase.execute(pageable);
 
